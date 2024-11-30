@@ -296,7 +296,7 @@ if uploaded_file:
 
         # Créer un DataFrame pour les résultats
         results_df = pd.DataFrame({
-            "id":data["id"]
+            "id": data["id"],
             "Prédiction": predictions,
             "Probabilité Faux": probabilities[:, 0],
             "Probabilité Vrai": probabilities[:, 1]
