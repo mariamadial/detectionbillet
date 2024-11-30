@@ -296,6 +296,7 @@ if uploaded_file:
 
         # Créer un DataFrame pour les résultats
         results_df = pd.DataFrame({
+            "id":data["id"]
             "Prédiction": predictions,
             "Probabilité Faux": probabilities[:, 0],
             "Probabilité Vrai": probabilities[:, 1]
@@ -323,13 +324,6 @@ if uploaded_file:
         # Calculer les comptes pour chaque type de billet
         prediction_counts = results_df["Prédiction"].replace({0: "Faux billet", 1: "Vrai billet"}).value_counts()
         
-        # Affichage dans Streamlit
-        st.write("## Distribution des Prédictions")
-        st.write("Voici la répartition des types de billets prédits :")
-        
-        # Afficher les résultats sous forme de texte
-        for billet_type, count in prediction_counts.items():
-            st.write(f"- **{billet_type}** : {count} billets")
         
         # Afficher les résultats dans un tableau
         st.write("### Tableau récapitulatif")
